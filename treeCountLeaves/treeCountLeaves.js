@@ -38,21 +38,22 @@ var Tree = function(value){
 };
 
 Tree.prototype.countLeaves = function () {
-  // TODO: implement me!
-  // base case: this.children has no value
-  // leaf has an empty value?... Leaf has an array with length of 0
+  // theCount will store the count of leaves found in leafCounter function
   var theCount = 0;
-  var myRecurse = function(child) {
+  var leafCounter = function(child) {
+    // Leaf has an array with length of 0
+    // base case: this.children has a length of 0
     if (child.children.length === 0) {
       theCount += 1;
       return;
     }
     // else recurse on children of current node
     for (var i = 0; i < child.children.length; i++) {
-      myRecurse(child.children[i]);
+      leafCounter(child.children[i]);
     }
   }
-  myRecurse(this);
+  // run leafCounter on this, and all children to count the numLeaves.
+  leafCounter(this);
   return theCount;
 }
 

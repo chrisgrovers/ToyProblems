@@ -46,8 +46,35 @@ var testingTransform = function(array) {
   return transform;
 };
 
-var insertionSort = function(array
-) {
+var insertionSort = function(array) {
   // Your code goes here. Feel free to add helper functions if needed.
-  return array;
+  var sortArray = [];
+  // iterate over helper array
+  for (var i = 0; i < array.length; i++){
+    // compare current value to each spot in helper array.
+    if (sortArray.length === 0) {
+      sortArray.push([array.shift()]);
+    }
+    for (var j = 0; j < sortArray.length; j++) {
+      debugger;
+      // if current value is equal to current spot, push to array in helper array at current spot
+      if (array[i].value === sortArray[j][0].value) {
+        sortArray[j].push(array[i].value);
+      }
+      // if current value is greater than current spot and less than next spot, insert
+      if (sortArray[i].value > sortArray[j][0].value && (sortArray[i].value < sortArray[j+1][0].value || sortArray[j+1][0] === undefined)) {
+        // take out the first objects in sortArray, and assign to helper array
+        var helperArray = sortArray.splice(0, i);
+        //  the current array value at the end of the helper array, so it's in order
+        helperArray.push([array[i]]);
+        // attach the rest of the sortArray to the helper array. Should now be in order
+        helperArray.concat(sortArray);
+        // sortArray should now be updated
+        sortArray = helperArray;
+      }
+    }
+  }
+  return sortArray;
 };
+ 
+ 

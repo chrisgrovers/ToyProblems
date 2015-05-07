@@ -12,25 +12,30 @@
 // Solved in O(n) time with O(1) memory
 // working.... Now to clean up!
 var sumArray = function(array) {
-  // use reduce function??
-  
   // current sum array
-  var sumArray = [];
-  var greatest = null;
-  // iterate through array
-  for (var i = 0; i < array.length; i++) {
-    // add value to all values in sumArray??
-    if (array[i] > greatest) {
-      greatest = array[i];
-    }
-    for (var j = 0; j < sumArray.length; j++) {
-      sumArray[j]+=array[i];
-      if (sumArray[j] > greatest) {
-        greatest = sumArray[j];
-      }
-    }
-    sumArray.push(array[i]);
+  // var sumArray = [];
+  // var greatest = null;
+  // // iterate through array
+  // for (var i = 0; i < array.length; i++) {
+  //   // add value to all values in sumArray??
+  //   if (array[i] > greatest) {
+  //     greatest = array[i];
+  //   }
+  //   for (var j = 0; j < sumArray.length; j++) {
+  //     sumArray[j]+=array[i];
+  //     if (sumArray[j] > greatest) {
+  //       greatest = sumArray[j];
+  //     }
+  //   }
+  //   sumArray.push(array[i]);
+  // }
+
+  var curGreatest = null;
+  var curAdd = 0;
+  for (var k = 0; k < array.length; k++) {
+    curAdd+=(array[k]);
+    curGreatest = Math.max(curAdd, curGreatest, array[k]);
   }
-  console.log(sumArray);
-  return greatest;
+  // console.log(curGreatest, curAdd);
+  return curGreatest;
 };

@@ -60,7 +60,7 @@ Tree.prototype.mapInPlace = function (callback) {
     // working correctly for first child.... Not much after...
     // working, but modifying the original tree....
     this.children[i].mapInPlace(callback);
-  }
+  } 
 
 };
 

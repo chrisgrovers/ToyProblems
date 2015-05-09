@@ -43,4 +43,31 @@ var phoneDigitsToLetters = {
 
 var telephoneWords = function(digitString) {
   // TODO: return every combination that can be spelled on a phone with these digits
+
+  var wordCombo = [];
+  // takes up to 4 digits of a number
+  // helper function that iterates through the letters
+  var findCombos = function(wordSalad) {
+    debugger;
+    var holder = wordSalad.slice();
+    var saladString = '';
+    if (wordSalad.length === 1){
+      for (var j = 0; j < phoneDigitsToLetters[holder]; j++) {
+        return phoneDigitsToLetters[holder][j];
+      }
+    }
+    // iterate through each letter for the first number in wordSalad
+    for (var i = 0; i < phoneDigitsToLetters[holder[0]].length; i++) {
+      saladString += (phoneDigitsToLetters[holder[0]][i])
+      console.log(phoneDigitsToLetters[holder[0]][i])
+      findCombos(holder.slice(1))
+      // it is only adding each letter for the first number....
+    }
+    wordCombo.push(saladString);
+    
+  }
+
+  findCombos(digitString);
+  // returns a list of all words that can be written (all permutations)
+  return wordCombo
 };

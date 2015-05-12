@@ -23,9 +23,19 @@
  *
 */
 
-var bind = function(
-) {
+var bind = function(callback, context) {
+  // takes two vars
   // TODO: Your code here
+  // uses callback on context
+  args = [];
+  // add extra arguments to args array
+  for (var i = 2; i < arguments.length; i++) {
+    args.push(arguments[i]);
+  }
+  return callback.apply(context, args);
+  // alerts when instantiating variable, throws not a function error when calling
+  // variable after instantiation.
+  // does not work with example 2
 };
 
 /*
@@ -53,7 +63,8 @@ var bind = function(
  *
 */
 
-Function.prototype.bind = function(
-) {
+Function.prototype.bind = function(context) {
   // TODO: Your code here
+  this.call(context);
+  // same as above, throws a "not a function" error after variable instantiation
 };

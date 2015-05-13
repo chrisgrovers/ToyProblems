@@ -43,7 +43,8 @@ var makeChange = function(total){
         numChange++;
       } else if (currenC[i] < curTotal) {
         // should I not let the function use the same currency more than once? 
-        // I need more time to play with this thought...
+        // I need more time to play with this thought... 
+        // I think I'm missing something right here
         currenCrecurse(curTotal % currenC[i], currency.shift());
       }
     }

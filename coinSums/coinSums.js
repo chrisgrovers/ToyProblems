@@ -25,7 +25,33 @@ makeChange(2) === 2
 */
 
 var makeChange = function(total){
+  // STUFF WE KNOW:
+  // have a counter for number of ways to make change
+  var numChange = 0;
 
+  // different currency in pence
+  var currenC = [1, 2, 5, 10, 20, 50, 100, 200];
+  var currenCrecurse = function(curTotal) {
+    console.log(curTotal, currency);
+    // iterate through each ammount of currency, and I will need to recurse
+    for (var i = 0; i < currenC.length; i++) {
+      console.log("curTotal", curTotal, "currenC[i]:", currenC[i]);
+      // if the current total is less than the current currency (heh) then get what's left over
+      // if the left over ammount is 0, then increment the numChange by one
+      if (curTotal % currenC[i] === 0 && curTotal > 0) {
+        console.log("added");
+        numChange++;
+      } else if (currenC[i] < curTotal) {
+        // should I not let the function use the same currency more than once? 
+        // I need more time to play with this thought...
+        currenCrecurse(curTotal % currenC[i], currency.shift());
+      }
+    }
+  }
+  // logs the different ammounts in different orders... Not quite what I need....
+  currenCrecurse(total, currenC);
+
+  return numChange
 };
 
 

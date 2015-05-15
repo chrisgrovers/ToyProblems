@@ -22,5 +22,29 @@
 
 var mixEvents = function(obj) {
   // TODO: Your code here
+  // add an on event??
+  this.listeners = {};
+
+
+  obj.on = function(listener, callback) {
+    // set up a "Listener" event... If this is "triggered", then do the callback
+    // listener will normally be false??
+    // right now, this "on" is "triggered" on instantiation.
+    // if I set listener to false, how do I change it when trigger?
+    listeners[listener] = callback;
+  }
+
+  //add a trigger event??
+  obj.trigger = function(listener) {
+    // put obj.on here??
+    // have a list of triggers/listeners??
+    listeners[listener]();
+    // account for multiple args
+    var args = Array.prototype.slice.call(arguments, 1);
+    for (var i = 0; i < args.length; i++) {
+      listeners[args[i]]();
+    }
+  }
+
   return obj;
 };

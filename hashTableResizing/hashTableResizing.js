@@ -8,6 +8,9 @@
  */
 
 
+// LOTS OF PSUEDOCODE, NOT MUCH WORKING
+// spent more time laying out how I wanted everything to work.
+
 var makeHashTable = function() {
   var result = {};
   var storage = [];

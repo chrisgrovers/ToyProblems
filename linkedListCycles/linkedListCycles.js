@@ -31,10 +31,39 @@
  * Constraint 3: Do not mutate the original nodes in any way
  */
 
-var Node = function(value){
+var Node = function(value) {
   return { value: value, next: null };
 }
 
-var hasCycle = function(linkedList){
+var hasCycle = function(linkedList) {
   // TODO: implement me!
+  // if it loops, I will eventually get a value that I have already seen.. Look for that repeat
+  // look for repeated values or repeated order??
+    // repeated value will work for mvp
+  var values = [];
+  var repeated = false;
+
+  var checkValues = function(check) {
+    // two base cases??
+    if (values.indexOf(check.value) > -1) {
+      console.log('repeated value reached');
+      repeated = true;
+      return;
+    } else if (check.next === null) {
+      console.log('null reached');
+      return repeated;
+    };
+    values.push(check.value);
+    checkValues(check.next);
+  }
+
+  checkValues(linkedList);
+  return repeated;
 };
+
+
+
+  // have a global var that increments each time a node is made, and compare that to how many times I check a next node?
+  // check for linked list length? Nope, can't do that...
+  // Look for never ending loops?
+    // problem: Neverending loop... Never ends. Will never return 'false'

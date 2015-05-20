@@ -59,7 +59,7 @@ var hasCycle = function(linkedList) {
 
   checkValues(linkedList);
   return repeated;
-};
+}; 
 
 
 

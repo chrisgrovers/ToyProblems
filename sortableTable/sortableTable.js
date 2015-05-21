@@ -18,6 +18,7 @@ $(function () {
     // sort by name
     // select first child of each tbody tr, and order by name
     $("#myTable tr td:first-child").
+    // or do I want to select all trs.... and sort... Probably that...
   });
   // sort for number of pounds
   $('#myTable thead tr th:nth-child(2)').on('click', function(element){

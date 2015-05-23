@@ -9,7 +9,20 @@ var primeTester = function(n) {
     // n isn't a number or n is less than 1 or n is not an integer
     return false;
   }
-  // TODO: return true if n is prime, false otherwise
+  // prime numbers can't be divisible by 2. Auto check!
+  if (n % 2 === 0 && n > 2) {
+    return false;
+  }
+  // add an array that stores prime numbers and checks if divisible by any of the prime numbers???
+  // start at half the number and iterate down from there
+  var start = Math.round(n/2);
+  for (var i = start; i > 2; i--) {
+    if (n % i === 0) {
+      // TODO: return true if n is prime, false otherwise
+      return false;
+    }
+  }
+  return true;
 };
 
 /* Extra credit: Write a function that generates a list of all prime numbers
@@ -19,6 +32,13 @@ var primeTester = function(n) {
  */
 
 var primeSieve = function (start, end) {
+  var primes = [];
+  for (var i = start; i < end; i++){
+    if (primeTester(i)) {
+      primes.push(i);
+    }
+  }
+  return primes;
 };
 
 

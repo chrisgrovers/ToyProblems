@@ -54,42 +54,76 @@ var numbersToPlace = {
 };
 
 Number.prototype.toEnglish = function () {
-  // return my value as english words
-  // check this length
-  // helper function and recurse for each spot?
-  // for loop?
+//   // return my value as english words
+//   // check this length
+//   // helper function and recurse for each spot?
+//   // for loop?
 
-  // var string = '';
-  // var eachSpot = function(number) {
-  //   if (number < 20) {
-  //     string+= numbersToWords[number];
-  //   } else if (number < 100) {
-  //     string+=numbersToWords[number.toString()[0] + '0'] + ' ';
-
-  //     eachSpot(number.toString().slice(1));
-  //   } else if (number < 1000) {
-  //     string+=numbersToWords[number.toString()[0] + '0'] + ' ';
-  //     eachSpot(number.toString().slice(1));
-  //   }
-  // }
-
-  // NOT ENOUGH TIME, BUT I JUST REMEMBERED WHAT A MODULO IS, AND THAT I SHOULD USE IT!!!!!!!!!!!
-  var thePhoenix = '';
-  var numberString = number.toString()
-  for (var i = 0; i < numberString.lenght; i++) {
+  var string = '';
+  var eachSpot = function(number) {
     if (number < 20) {
-      thePhoenix += numbersToWords[number];
-    }
-    // find a number that is less than ten, and work from there. Iterate through each spot... Don't have enough time to 
-    // put what is going on in my head into words or code, but I am pretty confident I am on to something
-    for (var tens in numbersToWords) {
-      if (number % tens < 10) {
-        console.log(number);
-      }
-    }
+      string+= numbersToWords[number];
+    } else if (number < 100) {
+      string+=numbersToWords[number.toString()[0] + '0'] + ' ';
 
+      eachSpot(number.toString().slice(1));
+    } else if (number < 1000) {
+      string+=numbersToWords[number.toString()[0] + '0'] + ' ';
+      eachSpot(number.toString().slice(1));
+    }
   }
-  console.log(thePhoenix);
-  // eachSpot(this);
-  // return string;
+
+//   // NOT ENOUGH TIME, BUT I JUST REMEMBERED WHAT A MODULO IS, AND THAT I SHOULD USE IT!!!!!!!!!!!
+//   var thePhoenix = '';
+//   var numberString = number.toString()
+//   for (var i = 0; i < numberString.lenght; i++) {
+//     if (number < 20) {
+//       thePhoenix += numbersToWords[number];
+//     }
+//     // find a number that is less than ten, and work from there. Iterate through each spot... Don't have enough time to 
+//     // put what is going on in my head into words or code, but I am pretty confident I am on to something
+//     for (var tens in numbersToWords) {
+//       if (number % tens < 10) {
+//         console.log(number);
+//       }
+//     }
+
+//   }
+//   console.log(thePhoenix);
+  eachSpot(this);
+  return string;
+
+
+//  ALEXJ SOLUTION ============================================
+// *   (7).toEnglish(); // > "seven"
+// *   (575).toEnglish(); // > "five hundred seventy-five"
+// *   (78193512).toEnglish(); // > "seventy-eight million one hundred ninety-three thousand five hundred twelve"
+
+//  NOTE: psuedo code super hard.... Super helps... Super good.
+
+
+
+// one approach is to break down by commas, append each section separately
+// get last two numbers of each 'section'
+// append appropriate string
+// if we are in the 'last third'
+  // append hundred to the first number of the last third
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 };

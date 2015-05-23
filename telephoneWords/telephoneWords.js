@@ -67,6 +67,7 @@ var telephoneWords = function(digitString) {
     
   }
 
+  
   findCombos(digitString);
   // returns a list of all words that can be written (all permutations)
   return wordCombo

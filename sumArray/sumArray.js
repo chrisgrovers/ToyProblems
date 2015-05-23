@@ -33,10 +33,10 @@ var sumArray = function(array) {
   var curGreatest = null;
   var curAdd = 0;
   for (var k = 0; k < array.length; k++) {
+    // functionality for the greatest contiguous after a decrease in val??
     curAdd+=(array[k]);
     curGreatest = Math.max(curAdd, curGreatest, array[k]);
   }
   // console.log(curGreatest, curAdd);
-  // functionality for the greatest contiguous after a decrease in val??
   return curGreatest;
 };

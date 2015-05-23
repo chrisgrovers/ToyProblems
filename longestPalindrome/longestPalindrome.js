@@ -40,3 +40,8 @@ var longestPalindrome = function (string) {
   };
   return longestPal;
 };
+
+/*
+* find longest centered palindrome
+*
+* */

@@ -31,7 +31,25 @@ var makeChange = function(total){
 
   // different currency in pence
   var currenC = [1, 2, 5, 10, 20, 50, 100, 200];
-  var currenCrecurse = function(curTotal) {
+
+  // ~~~~~~~~~~~~~~~~~~~~~~~~
+  (function recurse(index, remainder) {
+    // sets coin at last index value
+    var coin = currenC[index];
+
+    if (index === 0) {
+      remainder % coin === 0 && numChange++;
+      return;
+    }
+    while (remainder >= 0) {
+      recurse(index-1, remainder);
+      remainder -= coin;
+    }
+  })(currenC.length - 1, total);
+
+
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  var currenCrecurse = function(curTotal, currency) {
     console.log(curTotal, currency);
     // iterate through each ammount of currency, and I will need to recurse
     for (var i = 0; i < currenC.length; i++) {
@@ -50,7 +68,7 @@ var makeChange = function(total){
     }
   }
   // logs the different ammounts in different orders... Not quite what I need....
-  currenCrecurse(total, currenC);
+  // currenCrecurse(total, currenC);
 
   return numChange
 };

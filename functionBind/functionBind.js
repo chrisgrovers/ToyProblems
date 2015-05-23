@@ -31,6 +31,7 @@ var bind = function(callback, context) {
   // add extra arguments to args array
   for (var i = 2; i < arguments.length; i++) {
     args.push(arguments[i]);
+    console.log(arguments[i]);
   }
   return callback.apply(context, args);
   // alerts when instantiating variable, throws not a function error when calling

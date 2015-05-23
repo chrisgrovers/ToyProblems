@@ -78,3 +78,16 @@ var insertionSort = function(array) {
 };
  
  
+
+var insertionSortMKSQR = function(array) {
+  for (var i = 1; i < array.length; i++) {
+    var val = array[i];
+    var hole = i;
+
+    while (hole && val < array[hole-1]) {
+      array[hole] = array[hole-1];
+      hole-=1;
+    }
+  }
+  return array;
+}

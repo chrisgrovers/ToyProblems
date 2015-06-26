@@ -12,5 +12,29 @@
   *
   */
 var deepEquals = function(apple, orange){
+  // comparing apples to oranges?!?!?
+  var theSame = true;
+  var renderRecurse = function(tomato, potato) {
+
+    if (typeof tomato === 'number' || typeof potato === 'string') {
+      if (tomato !== potato) {
+        theSame = false;
+      }
+    }
+
+    if (typeof apple === 'object') {
+      for (var key in tomato) {
+        if (!(potato[key])) {
+          return theSame = false;
+        }
+        renderRecurse(tomato[key], potato[key])
+      }
+    }
+    
+  }
+
+  renderRecurse(apple, orange);
+
+  return theSame
 
 };

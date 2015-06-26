@@ -29,8 +29,14 @@ var deepEquals = function(apple, orange){
         }
         renderRecurse(tomato[key], potato[key])
       }
+      for (var key in potato) {
+        if (!(tomato[key])) {
+          return theSame = false;
+        }
+        renderRecurse(potato[key], tomato[key])
+      }
     }
-    
+
   }
 
   renderRecurse(apple, orange);

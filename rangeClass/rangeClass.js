@@ -38,20 +38,44 @@
 
 
 var Range = function(start, end, step) {
-
+  step = step || 1;
+  end = end || start;
+  var arr = [];
+  for (var i = start; i <= end; i += step) {
+    arr.push(i);
+  }
+  return arr;
 };
 
 Range.prototype.size = function () {
-
+  return this.arr.length;
 };
 
 Range.prototype.each = function (callback) {
-
+  for (var i = 0; i < this.arr.length; i++) {
+    callback(this.arr[i]);
+  }
 };
 
 Range.prototype.includes = function (val) {
-
+  for (var i = 0; i < this.arr.length; i++) {
+    if (val === this.arr[i]) {
+      return true;
+    }
+  }
+  return false;
 };
 
 var range = new Range(1);
 
+var myRange = new Range(0,10); // a new range representing the numbers between 0 and 10 (inclusively)
+var evenNumbers = new Range(2,8,2); // A range with the even numbers 2, 4, 6, and 8.
+evenNumbers.each(function(val){
+  console.log(val+"!");
+});
+console.log("Who do we appreciate!?");
+
+evenNumbers.size() // should be 4
+// I get the error that includes is not a function...
+evenNumbers.includes(2) // should be true, 
+evenNumbers.includes(3) // should be false

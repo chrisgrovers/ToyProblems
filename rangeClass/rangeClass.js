@@ -40,6 +40,11 @@
 var Range = function(start, end, step) {
   step = step || 1;
   end = end || start;
+  if (step < 0) {
+    var holder = start;
+    start = end;
+    end = holder;
+  }
   var arr = [];
   for (var i = start; i <= end; i += step) {
     arr.push(i);
@@ -80,3 +85,4 @@ evenNumbers.size() // should be 4
 // I get the error that include is not a function...
 evenNumbers.include(2) // should be true, 
 evenNumbers.include(3) // should be false
+

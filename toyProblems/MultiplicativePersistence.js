@@ -15,6 +15,3 @@ function MultiplicativePersistence(num) {
          
 }
    
-// keep this function call here 
-// to see how to enter arguments in JavaScript scroll down
-MultiplicativePersistence(readline());           

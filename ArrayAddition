@@ -1,0 +1,56 @@
+function ArrayAddition(arr) {
+	arr = arr.sort(function(a, b) {return a - b});
+	console.log(arr);
+	var largest = arr.pop();
+	console.log('arr is', arr);
+	var equalLargest = false;
+
+	var comboNum = function(comboArr, combo) {
+	    if (equalLargest === true) {
+	        return;
+	    }
+		console.log('combo is', combo);
+		if (combo === largest) {
+		    console.log('combo is equal to largest ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+			equalLargest = true;
+			return;
+		}
+		if (comboArr.length === 0) {
+			return;
+		}
+		for (var i = 0; i < comboArr.length; i++) {
+			copyArr = comboArr.slice(0,i - 1).concat(comboArr.slice(i));
+			if (i === 0) {
+				copyArr = comboArr.slice(1);
+			}
+			console.log('copyArr is', copyArr, 'comboArr is', comboArr)
+			// comboNum(copyArr, combo + comboArr[i]);
+			comboNum(copyArr, combo + comboArr[i]);
+		}
+	}
+    console.log('arr is', arr);
+	comboNum(arr, 0);
+
+	return equalLargest;
+}
+
+var testArr = [4, 6, 23, 10, 1, 3];
+ArrayAddition(testArr);
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            
+                            
+                            
+//   

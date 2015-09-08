@@ -12,6 +12,7 @@ function SimpleMode(arr) {
       if (curr === test[i]) {
         arr.splice(i, 1);
         currCount++;
+        
         if (currCount > modeCount) {
           modeCount = currCount;
           mode = curr;

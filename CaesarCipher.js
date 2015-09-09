@@ -47,3 +47,4 @@ function CaesarCipher(str,num) {
 console.log(CaesarCipher('Hello',4), 'should be Lipps');
 console.log(CaesarCipher('abc',0), 'should be abc');
 console.log(CaesarCipher('xyz', 3), 'should be abc');
+console.log(CaesarCipher('Caesar Cipher', 2), 'should be Ecguct Ekrjgt');
